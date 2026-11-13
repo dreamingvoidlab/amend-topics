@@ -1,0 +1,16 @@
+# Personal additions for this dev container. Copied to docker-compose.local.yml (git-ignored) on first
+# start: edit that copy, not this file.
+services:
+  dev-container:
+    environment:
+      HISTFILE: /home/vscode/.local/scratch/.bash_history # bash history that survives rebuilds
+    volumes:
+      - amend-topics-scratch:/home/vscode/.local/scratch # scratch space that survives rebuilds
+      # Optional: share host Claude Code state and SSH keys (absolute host paths):
+      # - /home/<you>/.claude:/home/vscode/.claude
+      # - /home/<you>/.claude.json:/home/vscode/.claude.json
+      # - /home/<you>/.ssh:/home/vscode/.ssh:ro
+
+volumes:
+  amend-topics-scratch:
+    name: amend-topics-scratch

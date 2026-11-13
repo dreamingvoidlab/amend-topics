@@ -1,0 +1,8 @@
+# LF everywhere, so Windows checkouts can't break byte-exact golden files.
+* text=auto eol=lf
+
+# Windows batch scripts need CRLF.
+*.bat text eol=crlf
+
+# Binaries are never normalized.
+*.jar binary

@@ -1,0 +1,15 @@
+services:
+  dev-container:
+    build:
+      context: ../.github/devcontainer-image
+    volumes:
+      - ..:/workspaces/amend-topics:cached
+      - amend-topics-auth-gh:/home/vscode/.config/gh
+      - amend-topics-cache-gradle:/home/vscode/.gradle
+    command: sleep infinity
+
+volumes:
+  amend-topics-auth-gh:
+    name: amend-topics-auth-gh
+  amend-topics-cache-gradle:
+    name: amend-topics-cache-gradle

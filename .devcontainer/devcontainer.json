@@ -1,0 +1,78 @@
+{
+  "name": "amend-topics",
+  "dockerComposeFile": [
+    "docker-compose.yml",
+    "docker-compose.local.yml"
+  ],
+  "service": "dev-container",
+  "workspaceFolder": "/workspaces/amend-topics",
+  "shutdownAction": "stopCompose",
+  "initializeCommand": "test -f .devcontainer/docker-compose.local.yml || cp .devcontainer/docker-compose.local.example.yml .devcontainer/docker-compose.local.yml",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {
+      "moby": false
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Anthropic.claude-code",
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-gradle",
+        "vmware.vscode-spring-boot",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-containers",
+        "EditorConfig.EditorConfig",
+        "DavidAnson.vscode-markdownlint"
+      ],
+      "settings": {
+        "java.compile.nullAnalysis.mode": "disabled",
+        "java.completion.favoriteStaticMembers": [
+          "org.assertj.core.api.Assertions.*"
+        ],
+        "java.completion.filteredTypes": [
+          "java.awt.List",
+          "com.sun.*"
+        ],
+        "java.completion.importOrder": [
+          "java",
+          "javax",
+          "",
+          "#"
+        ],
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.format.settings.url": "config/eclipse-formatter.xml",
+        "java.import.gradle.java.home": "${containerEnv:JAVA_HOME}",
+        "java.jdt.ls.vmargs": "-XX:+UseParallelGC -Xmx1G -Xms100m -Xlog:disable",
+        "files.associations": {
+          "CLAUDE.md": "markdown",
+          "CLAUDE.local.md": "markdown",
+          "SKILL.md": "markdown",
+          "**/rules/**/*.md": "markdown"
+        },
+        "files.trimFinalNewlines": true,
+        "files.watcherExclude": {
+          "**/build/**": true,
+          "**/.gradle/**": true
+        },
+        "redhat.telemetry.enabled": false,
+        "[java]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        }
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    }
+  }
+}

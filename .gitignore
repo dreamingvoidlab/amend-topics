@@ -1,0 +1,12 @@
+# Editor
+.vscode/
+
+# Build output
+.gradle/
+bin/
+build/
+
+# Local, per-developer files
+.claude/settings.local.json
+.devcontainer/docker-compose.local.yml
+CLAUDE.local.md
